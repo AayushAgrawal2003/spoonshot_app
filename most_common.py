@@ -1,10 +1,6 @@
-from collections import Counter
-from math import log
-from nltk import word_tokenize
-from nltk.corpus import brown
-import nltk
-nltk.download('punkt')
-nltk.download('brown')
+
+#nltk.download('punkt')
+#nltk.download('brown')
 
 toks = word_tokenize(open('data.txt').read().lower())
 tf = Counter(toks)
