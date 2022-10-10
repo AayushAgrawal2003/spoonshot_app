@@ -1,7 +1,7 @@
 X = open('data.txt')
 data = str(X.read())
 data = data.strip().split()
-from search import arr
+from Q1.search import arr
 # arr = ['hello my good' , "good","freind","g"]
 # data = ["hello" ,"my", "good" ,"freind"]
 #Brute Force Approach

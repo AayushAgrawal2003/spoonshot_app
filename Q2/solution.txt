@@ -1,0 +1,2 @@
+a. The problem is to place the product of all the other elements in the array.
+b.
