@@ -1,5 +1,3 @@
-
-#importing libraries
 from collections import Counter
 from math import log
 from nltk import word_tokenize
