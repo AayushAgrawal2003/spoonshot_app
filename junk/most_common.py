@@ -11,7 +11,12 @@ from collections import OrderedDict
 import numpy as np
 import math
 
-toks = word_tokenize(open('../Q1/data.txt').read().lower().replace(',',"").replace('.',"").replace('!',"").replace('"',"").replace("'","").replace("’","").replace("and","").replace('–'," "))
+toks = word_tokenize(open('../Q1/data.txt').read().lower().replace(',',"").replace('.',"").replace('!',"").replace('"',"").replace("'","").replace("’","").replace("and","").replace('–'," ").replace("?"," "))
+#removing commmon words that are not keywords 
+scrap = ["and","or","my","for","i","to","you","our","dont","im","isnt","‘","a","can't","cant","can"]
+for i in scrap:
+    toks = list(filter((i).__ne__, toks))
+#print(toks)
 tf = Counter(toks)
 
 freqs = Counter(w.lower() for w in brown.words())

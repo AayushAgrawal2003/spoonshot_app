@@ -16,7 +16,7 @@ pip install requirements.txt
 
 ### Explanation of approaches used.
 
-1. Used nltk library to find most common words in the article, calcuated the their frequency.
+1. Used nltk library wordnet.synsets to find most common words in the article, calcuated the their frequency.
 2. Matching the words in the ingridient list to the words in the most common words list.
 3. Synonyms of the words in the ingridient list and looked for them in the most common words list.
 4. WebScrapping, webscrapped data from [Dictionary.com](www.dictonary.com).
@@ -79,27 +79,26 @@ The 3 models used require different amount of time, the graph has been plotted o
  ['Apple Cinnamon Granola', '0%'],
  ['Americano Coffee', '0%'],
  ['Ambrette Seed', '0%']]
-process completed in:  2.362823009490967 seconds
+process completed in:  2.200187921524048 seconds
 ```
 
 ### Synonyms 
 ```
-[['Vegan Puff Pastry Sheet', '11%'],
- ['Vegan Semisweet Chocolate Chips', '11%'],
- ['Vegan Carob Chips', '10%'],
+ ['Vegan Carob Chips', '11%'],
+ ['Vegan Puff Pastry Sheet', '10%'],
  ['Vegan White Cake', '10%'],
  ['Vegan Chicken Strips', '9%'],
  ['Vegan Marshmallow', '8%'],
  ['Vegan Chorizo', '8%'],
  ['Chia Meal', '7%'],
- ['Munch Chocolate', '5%'],
+ ['Munch Chocolate', '6%'],
  ['Organic Tartar Cream', '3%'],
  ['Ambrette Seed', '3%'],
  ['Crunch Bars', '3%'],
  ['Hog Maw', '3%'],
- ['Arizona Seasoning', '3%'],
  ['Vegetable Stock', '2%'],
  ['Pork Chump Chops', '2%'],
+ ['Arizona Seasoning', '2%'],
  ['Organic Maize', '2%'],
  ['Organic Peruvian Groundcherry', '2%'],
  ['Baby Abalone', '2%'],
@@ -126,7 +125,7 @@ process completed in:  2.362823009490967 seconds
  ['Giardiniera', '0%'],
  ['Cardamom', '0%'],
  ['Apple Cinnamon Granola', '0%']]
-process completed in:  11.527866840362549 seconds
+process completed in:  11.82626724243164 seconds
 ```
 ### Web Scrapping
 ```
@@ -139,19 +138,19 @@ process completed in:  11.527866840362549 seconds
  ['Vegan Chicken Strips', '9%'],
  ['Vegan Carob Chips', '9%'],
  ['Pork Tripe', '6%'],
- ['Pork Chump Chops', '6%'],
+ ['Celery Soup', '5%'],
  ['Pork Lungs', '3%'],
+ ['Pork Chump Chops', '3%'],
  ['Mccormick Montreal Steak Seasoning', '3%'],
- ['Celery Soup', '3%'],
  ['Arizona Seasoning', '3%'],
  ['Apple Cinnamon Granola', '3%'],
  ['Munch Chocolate', '3%'],
+ ['Smokies Sausage', '2%'],
  ['Vinegar', '0%'],
  ['Vegetable Stock', '0%'],
  ['Tamarind', '0%'],
  ['Strawberry Gelatin', '0%'],
  ['Snickers Spread', '0%'],
- ['Smokies Sausage', '0%'],
  ['SalmonTomato', '0%'],
  ['Pickled Cauliflower', '0%'],
  ['Peanut Butter', '0%'],
@@ -172,14 +171,15 @@ process completed in:  11.527866840362549 seconds
  ['Baby Abalone', '0%'],
  ['Americano Coffee', '0%'],
  ['Ambrette Seed', '0%']]
-process completed in:  35.480502128601074 seconds
+process completed in:  41.43463397026062 seconds
 ```
 
 
-### All 
+### All
+
 ```
-[['Vegan Puff Pastry Sheet', '11%'],
- ['Vegan Semisweet Chocolate Chips', '10%'],
+[['Vegan Semisweet Chocolate Chips', '11%'],
+ ['Vegan Puff Pastry Sheet', '11%'],
  ['Vegan Carob Chips', '10%'],
  ['Vegan White Cake', '10%'],
  ['Vegan Chicken Strips', '9%'],
@@ -188,30 +188,30 @@ process completed in:  35.480502128601074 seconds
  ['Chia Meal', '8%'],
  ['Munch Chocolate', '5%'],
  ['Organic Tartar Cream', '3%'],
- ['Pork Chump Chops', '3%'],
  ['Ambrette Seed', '3%'],
  ['Crunch Bars', '3%'],
- ['Arizona Seasoning', '3%'],
  ['Hog Maw', '2%'],
+ ['Pork Chump Chops', '2%'],
+ ['Arizona Seasoning', '2%'],
  ['Vegetable Stock', '2%'],
  ['Mccormick Montreal Steak Seasoning', '2%'],
  ['Pork Tripe', '2%'],
+ ['Celery Soup', '2%'],
  ['Organic Maize', '2%'],
  ['Organic Peruvian Groundcherry', '1%'],
  ['Baby Abalone', '1%'],
  ['Cadbury Double Decker Chocolate Bar', '1%'],
- ['Celery Soup', '1%'],
  ['Pork Lungs', '1%'],
  ['Apple Cinnamon Granola', '1%'],
  ['Campari Tomato', '1%'],
  ['Peanut Butter', '1%'],
+ ['Smokies Sausage', '1%'],
  ['Americano Coffee', '1%'],
  ['Snickers Spread', '1%'],
  ['Orange Extract', '1%'],
  ['Strawberry Gelatin', '1%'],
  ['Vinegar', '0%'],
  ['Tamarind', '0%'],
- ['Smokies Sausage', '0%'],
  ['SalmonTomato', '0%'],
  ['Pickled Cauliflower', '0%'],
  ['Murukku Packet', '0%'],
@@ -220,9 +220,8 @@ process completed in:  35.480502128601074 seconds
  ['Mango', '0%'],
  ['Giardiniera', '0%'],
  ['Cardamom', '0%']]
-process completed in:  43.580971002578735 seconds
+process completed in:  56.36802792549133 seconds
 ```
-
 
 ## Q2 
 ### Run Instructions 
@@ -231,7 +230,16 @@ Used 2 different algorithms for solving the problem both of them are **O(n)**
 
 1. It goes through array twice once forward and once backward and multiplies all prev products with the current element to get a product from both sides.
 
+```
+cd Q2/
+python 1.py
+```
 2. It goes through the array once and calculates the product and checks for number of 0's.
+
+```
+cd Q2/
+python 2.py
+```
 
 > Run time for 1 is slighly less than 2, but I prefer 2 over one since its cleaner and uses a better algorithm for larger datasets.
 
