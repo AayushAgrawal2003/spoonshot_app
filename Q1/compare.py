@@ -57,15 +57,16 @@ for i in range(len(arr)):
             synonyms.append(word)
             for j in range(len(synonyms)):
                 for k in range(len(common_words)):
-                    if nltk.edit_distance(common_words[k][0].lower(), synonyms[j].lower()) < 3:
-                        dict_main[arr[i]] += common_words[k][1] 
+                    if nltk.edit_distance(common_words[k][0].lower(), synonyms[j].lower()) < 2:
+                        dict_main[arr[i]] += 2 * common_words[k][1] 
         #webscrapper list comparision 
         if control == 1 or control == 3:
             #calling imported function description
             description_points =  description(word)
+            description_points.append(word)
             for desc in description_points:
-                for k in range(len(common_words[0:10])):
-                    if nltk.edit_distance(common_words[k][0].lower(), desc.lower()) < 3 and len(common_words[k][0]) > 2:
+                for k in range(len(common_words[0:15])):
+                    if common_words[k][0].lower() == desc.lower() and len(common_words[k][0]) > 2:
                         dict_main[arr[i]] += common_words[k][1] 
 
 et = time.time()
