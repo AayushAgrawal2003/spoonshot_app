@@ -31,6 +31,11 @@ def synonym_extractor(phrase):
 
 #Calculating the most used/relevant words in the article
 toks = word_tokenize(open('data.txt').read().lower().replace(',',"").replace('.',"").replace('!',"").replace('"',"").replace("'","").replace("’","").replace("and",""))
+
+scrap = ["and","or","my","for","i","to","you","our","dont","im","isnt","‘","a","can't","cant","can"]
+for i in scrap:
+    toks = list(filter((i).__ne__, toks))
+
 tf = Counter(toks)
 freqs = Counter(w.lower() for w in brown.words())
 n = len(brown.words())
