@@ -1,0 +1,7 @@
+nltk
+numpy
+pprint
+sklearn
+pandas
+bs4
+requests

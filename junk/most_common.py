@@ -1,7 +1,5 @@
-
 #nltk.download('punkt')
 #nltk.download('brown')
-
 from collections import Counter
 from math import log
 from nltk import word_tokenize
@@ -23,4 +21,6 @@ for word in tf:
 
 
 common_words = tf.most_common()
+
+pprint.pprint(common_words[0:20])
 
