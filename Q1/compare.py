@@ -10,9 +10,10 @@ import numpy as np
 import math
 from scrapper import description
 import time
+import nltk
 
 #User Input
-print("Welcome! \nTo use Webscraping [1] --> This may take signicantly more time, since it scarapes the internet for a description for each ingridient\nTo use Synonyms [2] \nTo use Both [3]")
+print("Welcome! \nTo use Simple Word Matching [0] \nTo use Webscraping [1] --> This may take signicantly more time, since it scarapes the internet for a description for each ingridient\nTo use Synonyms [2] \nTo use All [3]")
 control = int(input())
 st = time.time()
 
@@ -46,13 +47,17 @@ dict_main = {k: 0 for v, k in enumerate(arr)}
 for i in range(len(arr)):
     words = arr[i].split()
     for word in words:
+        if control== 0:
+            for k in range(len(common_words)):
+                if common_words[k][0].lower() == word.lower():
+                    dict_main[arr[i]] += common_words[k][1] 
         #synonym list comparision 
         if control == 2 or control == 3:
             synonyms = synonym_extractor(word)
             synonyms.append(word)
             for j in range(len(synonyms)):
                 for k in range(len(common_words)):
-                    if common_words[k][0].lower() == synonyms[j].lower():
+                    if nltk.edit_distance(common_words[k][0].lower(), synonyms[j].lower()) < 3:
                         dict_main[arr[i]] += common_words[k][1] 
         #webscrapper list comparision 
         if control == 1 or control == 3:
@@ -60,7 +65,7 @@ for i in range(len(arr)):
             description_points =  description(word)
             for desc in description_points:
                 for k in range(len(common_words[0:10])):
-                    if common_words[k][0].lower() == desc.lower() and len(common_words[k][0]) > 2:
+                    if nltk.edit_distance(common_words[k][0].lower(), desc.lower()) < 3 and len(common_words[k][0]) > 2:
                         dict_main[arr[i]] += common_words[k][1] 
 
 et = time.time()
